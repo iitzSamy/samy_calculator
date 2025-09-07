@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Samy_Calculator</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="calc" role="application" aria-label="Calculadora">
+      <div class="topbar">
+        <div class="lites"><div class="lite"></div><div class="lite"></div><div class="lite"></div></div>
+        <div class="brand">SAMY • CALCULATOR</div>
+      </div>
+
+      <div class="screen" aria-live="polite">
+        <div class="memory-row"><span id="pendingOp"></span></div>
+        <div class="display" id="display">0</div>
+      </div>
+
+      <div class="keys">
+        <button class="key op alt" data-action="clear">AC</button>
+        <button class="key op alt" data-action="sign">±</button>
+        <button class="key op alt" data-action="percent">%</button>
+        <button class="key op" data-op="divide">÷</button>
+
+        <button class="key" data-digit="7">7</button>
+        <button class="key" data-digit="8">8</button>
+        <button class="key" data-digit="9">9</button>
+        <button class="key op" data-op="multiply">×</button>
+
+        <button class="key" data-digit="4">4</button>
+        <button class="key" data-digit="5">5</button>
+        <button class="key" data-digit="6">6</button>
+        <button class="key op" data-op="subtract">−</button>
+
+        <button class="key" data-digit="1">1</button>
+        <button class="key" data-digit="2">2</button>
+        <button class="key" data-digit="3">3</button>
+        <button class="key op" data-op="add">+</button>
+
+        <button class="key span-2" data-digit="0">0</button>
+        <button class="key" data-action="decimal">,</button>
+        <button class="key equal" data-action="equals">=</button>
+
+        <button class="key op alt span-2" data-action="backspace">⌫</button>
+        <button class="key op alt span-2" data-action="clear-entry">C</button>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

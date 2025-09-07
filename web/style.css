@@ -1,0 +1,104 @@
+@import url('https://fonts.cdnfonts.com/css/calculator');
+
+:root {
+  --bg:#0f1216; --bezel:#171b21; --screen:#1b2027;
+  --digit:#e8f1ff; --muted:#8fa3bf; --op:#ff9f0a;
+  --op-ghost:#ffb84d; --key:#222832; --key-light:#2a3140;
+  --shadow: rgba(0,0,0,.55); --accent:#29b6f6;
+}
+
+body {
+  display:none; margin:0; height:100vh; width:100vw;
+  background:transparent; overflow:hidden;
+  justify-content:center; align-items:center;
+}
+
+body.active { display:flex; }
+
+.calc {
+  width:25vmin; border-radius:1.5vmin; overflow:hidden;
+  background:linear-gradient(145deg,#111111,#1b1b1b);
+  box-shadow:0 1vmin 2vmin var(--shadow), inset 0 0.05vmin 0 rgba(255,255,255,.06), inset 0 -0.05vmin 0 rgba(0,0,0,.6);
+  border:0.05vmin solid rgba(255,255,255,.04);
+}
+
+.topbar {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0.75vmin 1vmin; user-select:none;
+  background:linear-gradient(180deg, rgba(255,255,255,.04),transparent);
+  border-bottom:0.05vmin solid rgba(255,255,255,.05);
+}
+
+.lites{display:flex; gap:0.5vmin;}
+
+.lite {
+  width:0.6vmin; height:0.6vmin; border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, rgba(255,255,255,.65), rgba(255,255,255,.05) 35%), var(--key);
+  box-shadow:inset 0 0 0 0.05vmin rgba(255,255,255,.08), 0 0.15vmin 0.3vmin rgba(0,0,0,.6);
+}
+
+.brand {
+  font:600 0.6vmin/1 'Arial',sans-serif; letter-spacing:.12em;
+  color:var(--muted);
+}
+
+.screen {
+  height:6.5vmin; display:grid; align-content:end; padding:1vmin 1vmin 1.25vmin;
+  background:radial-gradient(40vmin 8vmin at 50% -4vmin, rgba(222, 222, 222, 0.08), transparent),
+             linear-gradient(180deg, rgba(255,255,255,.06), transparent);
+  box-shadow:inset 0 0.75vmin 2.5vmin rgba(0,0,0,.55);
+}
+.memory-row {
+  display:flex; align-items:center; justify-content:flex-end; gap:0.4vmin;
+  height:1vmin; font:0.6vmin/1.2 var(--muted); letter-spacing:.02em;
+  color:var(--muted);
+}
+
+.display {
+  font-family:'calculator'; font-variant-numeric:tabular-nums;
+  text-align:right; font-size:3.5vmin; line-height:1;
+  color:var(--digit);
+  text-shadow:0 0.1vmin 0 rgba(255,255,255,.05),0 0.2vmin 1vmin rgba(41,182,246,.08);
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+
+.op-pending {
+  color:var(--op-ghost); font-weight:600; font-size:1vmin;
+  margin-left:0.5vmin; vertical-align:middle;
+}
+
+.keys {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:0.6vmin; padding:1vmin;
+  background:linear-gradient(180deg, rgba(255,255,255,.02), transparent);
+}
+
+button.key {
+  appearance:none; border:0; border-radius:1vmin;
+  background:linear-gradient(180deg,var(--key-light),var(--key));
+  font:600 1.25vmin/1 'Arial',sans-serif; color:#e9edf6;
+  padding:1vmin 0; cursor:pointer; position:relative; isolation:isolate;
+  box-shadow:0 1vmin 2.25vmin rgba(0,0,0,.55), inset 0 0.05vmin 0 rgba(255,255,255,.06), inset 0 -0.05vmin 0 rgba(0,0,0,.6);
+  transform:translateY(0); transition: transform .02s ease-out, filter .12s ease;
+  user-select:none;
+}
+
+button.key:active, button.key.k-press {
+  transform:translateY(0.25vmin); filter:brightness(1.08);
+  box-shadow:0 0.75vmin 1.5vmin rgba(0,0,0,.6), inset 0 0.05vmin 0 rgba(255,255,255,.04), inset 0 -0.05vmin 0 rgba(0,0,0,.65);
+}
+
+.key.op { background:linear-gradient(180deg,#ffad33,#ff9500); color:#111; text-shadow:0 0.1vmin 0 rgba(255,255,255,.25); }
+.key.op.alt { background:linear-gradient(180deg,#3d485a,#313848); color:#e9edf6; }
+.key.equal { background:linear-gradient(180deg,var(--accent),#1594d1); color:#04121b; }
+
+.span-2 { grid-column: span 2; }
+
+kbd {
+  font:600 0.6vmin/1.2 ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+  background:#222222; color:#a9c1d9; padding:0.2vmin 0.5vmin;
+  border-radius:0.5vmin; border:0.05vmin solid rgba(255,255,255,.07);
+}
+
+.key:focus-visible { outline:0.15vmin solid #7bd4ff; outline-offset:0.15vmin; }
+
+@media (max-width:18vmin){ .display{font-size:2vmin} }

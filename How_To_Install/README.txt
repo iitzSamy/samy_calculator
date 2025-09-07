@@ -1,0 +1,1 @@
+Inside Item.lua is the code for the calculator item that you have to put in ox_inventory, I also left you an item image <3
